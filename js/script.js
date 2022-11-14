@@ -6,7 +6,7 @@ for(let i = 0; i < 256; i++) {
     let square = document.createElement("div");
 
     square.addEventListener("mouseover", function () {
-        square.style.background = "black";
+        square.style.background = "yellow";
     });
 
     square.style.border = "1px solid black";
