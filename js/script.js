@@ -6,10 +6,14 @@ for(let i = 0; i < 256; i++) {
     let square = document.createElement("div");
 
     square.addEventListener("mouseover", function () {
-        square.style.background = "yellow";
+        square.style.background = "black";
     });
 
     square.style.border = "1px solid black";
     square.style.background = "white";
     board.insertAdjacentElement("beforeend", square);
+}
+
+function setSize() {
+    prompt("Choose a size between 2 - 99:")
 }
