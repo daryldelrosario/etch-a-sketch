@@ -26,7 +26,6 @@ function setSize() {
 }
 
 function changeColor(e) {
-    if (mouseDown) {
-        e.target.style.background = "black";
-    }
+    if(e.type === 'mouseover' && !mouseDown) return
+    e.target.style.backgroundColor = "black";
 }
