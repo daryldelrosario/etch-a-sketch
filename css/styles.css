@@ -13,7 +13,13 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;   
+    border: 1px solid black;
+    height: 100vh;
+}
+
+.square-element {
+    border: 1px solid black;
+    background-color: white;
 }
 
 .title {

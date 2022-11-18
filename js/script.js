@@ -1,31 +1,54 @@
+// Startup Default Variables
+const DEFAULT_SIZE = 16;
+let currentSize = DEFAULT_SIZE;
 let board = document.querySelector(".board");
-board.style.gridTemplateColumns = "repeat(16, 1fr)";
-board.style.gridTemplateRows = "repeat(16, 1fr)";
+let footer = document.querySelector(".footer-content");
 
-var mouseDown = false;
-document.body.onmousedown = function() {
-  mouseDown = true;
-};
-document.body.onmouseup = function() {
-  mouseDown = false;
-};
+// Dynamically creates size of board inside div.board
+function createBoard(size) {
+  board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
-for(let i = 0; i < 256; i++) {
-    let square = document.createElement("div");
-
+  for(let i = 0; i < (size * size); i++) {
+    const square = document.createElement("div");
+    square.classList.add("square-element");
     square.addEventListener("mouseover", changeColor);
     square.addEventListener("mousedown", changeColor);
-
-    square.style.border = "1px solid black";
-    square.style.background = "white";
-    board.insertAdjacentElement("beforeend", square);
+    board.appendChild(square);
+  }
 }
 
+// Triggered via HTML onclick button `Select Size`
 function setSize() {
-    prompt("Choose a size between 2 - 99:")
+  const size = prompt("Choose a size between 2 and 99: ");
+
+  if(size >=2 && size <= 99) {
+    board.textContent = "";
+    createBoard(size);
+  } else if(size < 2 || size > 99) {
+    alert("Please try again");
+    setSize();
+  } else {
+    alert("Please try again");
+    setSize();
+  }
 }
+
+// Set up for modified hover pen function
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
 
 function changeColor(e) {
     if(e.type === 'mouseover' && !mouseDown) return
     e.target.style.backgroundColor = "black";
+}
+
+// Footer content
+const year = new Date().getFullYear();
+footer.textContent = '\u00A9'
+
+// Setup board when window loads
+window.onload = () => {
+  createBoard(currentSize);
 }
