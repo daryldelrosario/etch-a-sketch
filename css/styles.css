@@ -22,6 +22,12 @@ body {
     background-color: white;
 }
 
+.footer-content {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11px;
+    padding: 8px;
+}
+
 .title {
     padding: 0;
     margin: 0;
@@ -35,6 +41,6 @@ body {
 
 .board {
     display: grid;
-    width: 500px;
-    height: 500px; 
+    width: 444px;
+    height: 444px; 
 }
